@@ -1,0 +1,9 @@
+.flex-container {
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: space-around; /* 요소 간 간격 동일하게 */
+}
+
+.center-align {
+    text-align: center;
+}

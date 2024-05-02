@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>판매점의 오프라인 상담(일반상담/구매상담)을 진행하는 페이지
+*참고: 본사 Profile : Default Off(App Launcher에서 검색가능)</description>
+    <flexiPage>Customer_Service</flexiPage>
+    <label>오프라인 상담</label>
+    <motif>Custom15: People</motif>
+</CustomTab>

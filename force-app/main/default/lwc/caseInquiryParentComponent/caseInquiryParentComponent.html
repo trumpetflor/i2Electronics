@@ -1,0 +1,20 @@
+<template>
+  
+        <lightning-tabset>
+            <lightning-tab label="일반상담">
+                <c-case-general-inquiry onsave={handleInquirySave}></c-case-general-inquiry>
+            </lightning-tab>
+            <lightning-tab label="구매상담">
+                <c-case-purchase-inquiry onsave={handleInquirySave}></c-case-purchase-inquiry>
+            </lightning-tab>
+        </lightning-tabset>
+  
+
+    <template if:true={isGeneralInquiry}>
+        <c-case-general-inquiry onsave={handleSave}></c-case-general-inquiry>
+    </template>
+
+    <template if:true={isPurchaseInquiry}>
+        <c-case-purchase-inquiry onsave={handleSave}></c-case-purchase-inquiry>
+    </template>
+</template>

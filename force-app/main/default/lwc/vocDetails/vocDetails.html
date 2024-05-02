@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="VoC 상세 정보" icon-name="standard:record">
+        <div class="slds-p-around_medium">
+            <dl class="slds-list_horizontal slds-wrap">
+                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="고객명">고객명:</dt>
+                <dd class="slds-item_detail slds-truncate" title={contactName}>{contactName}</dd>
+
+                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="제품 ID">제품 ID:</dt>
+                <dd class="slds-item_detail slds-truncate" title={productId}>{productId}</dd>
+
+                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="제품명">제품명:</dt>
+                <dd class="slds-item_detail slds-truncate" title={productName}>{productName}</dd>
+
+                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="VoC상담 내용">VoC상담 내용:</dt>
+                <dd class="slds-item_detail slds-truncate" title={description}>
+                    <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+                </dd>
+            </dl>
+        </div>
+    </lightning-card>
+</template>

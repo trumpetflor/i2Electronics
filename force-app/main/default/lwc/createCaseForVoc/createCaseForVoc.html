@@ -1,0 +1,29 @@
+<!--VocSearchContacts 컴포넌트에서 고객 및 제품을 선택했을 때
+    선택된 정보를 이벤트로 발생시켜 CreateCaseForVoc 컴포넌트로 전달받음.-->
+<template>
+    <lightning-card title="VoC 상담내역 작성" icon-name="standard:case">
+
+        <div class="slds-p-around_medium">
+            <div class="custom-input">
+                <lightning-input label="고객명" value={contactName} readonly></lightning-input>
+                <!-- <lightning-input label="제품 ID" value={productId} readonly></lightning-input> -->
+                <lightning-input label="제품명" value={productName} readonly></lightning-input>
+                <!-- <lightning-input type="hidden" label="판매점" value={accountName} ></lightning-input> -->
+            </div>
+
+            
+            <lightning-input-rich-text
+                class="rich-text"
+                label="VoC상담 내용"
+                placeholder="상담 진행사항을 작성하세요"
+                value={description}
+                formats={myformats}
+                variant="label-hidden"
+                onchange={handleDescriptionChange}>
+            </lightning-input-rich-text>
+        <div class="button-container">
+                <lightning-button label="저장" onclick={handleSave} variant="brand" class="slds-m-top_small"></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,110 @@
+<template>
+    <div class="slds-m-around_medium">
+        <ol class="slds-setup-assistant">
+            <li class="slds-setup-assistant__item">
+                <article class="slds-setup-assistant__step">
+                    <h3 class="slds-setup-assistant__step-summary-title">판매지점</h3>
+                    <div class="slds-setup-assistant__step-detail">
+                        <c-account-selector onaccountchange={handleAccountChange}></c-account-selector>
+                    </div>
+                </article>
+            </li>
+
+             <!-- 3. 고객정보 받기 -->
+             <li class="slds-setup-assistant__item">
+                <article class="slds-setup-assistant__step">
+                    <h3 class="slds-setup-assistant__step-summary-title">1. 고객정보 입력 </h3>
+                    <div class="slds-setup-assistant__step-detail">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <label class="slds-radio">
+                                    <input type="radio" name="customerType" value="newCustomer"
+                                        onchange={handleCustomerTypeChange} />
+                                    <span class="slds-radio_faux"></span>
+                                    <span class="slds-form-element__label">신규 고객</span>
+                                </label>
+                                <label class="slds-radio">
+                                    <input type="radio" name="customerType" value="existingCustomer"
+                                        onchange={handleCustomerTypeChange} />
+                                    <span class="slds-radio_faux"></span>
+                                    <span class="slds-form-element__label">기존 고객</span>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- 신규 고객 선택시 열리는 slot창-->
+                        <template if:true={isNewCustomer}>
+                            <c-new-customer-form slot="new-customer" oncustomerinfochange={handleCustomerInfoChange}
+                                oncontactcreated={handleContactCreated}></c-new-customer-form>
+                        </template>
+
+                        <!-- 기존 고객 선택시 열리는 모달 컴포넌트-->
+                        <c-voc-search-contacts-modal is-modal-open={isExistingCustomer}>
+                            <c-voc-search-contacts slot="customer-search-modal"
+                                oncontactselect={handleContactSelect}></c-voc-search-contacts>
+                        </c-voc-search-contacts-modal>
+
+                        <!-- 기존 고객 선택 후 모달에서 선택시 고객 정보 표시 -->
+                        <template if:true={showCustomerInfo}>
+                            <div class="slds-box slds-theme_default slds-m-top_medium">
+                                <h3 class="slds-text-title_caps slds-m-bottom_small">선택된 고객 정보</h3>
+                                <dl class="slds-list_horizontal slds-wrap">
+                                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="고객 이름">고객 이름:
+                                    </dt>
+                                    <dd class="slds-item_detail slds-truncate">{selectedContactName}</dd>
+                                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="고객 번호">고객 번호:
+                                    </dt>
+                                    <dd class="slds-item_detail slds-truncate">{selectedContactPhone}</dd>
+                                </dl>
+                            </div>
+                        </template>
+                    </div>
+                </article>
+            </li>
+
+
+
+            <li class="slds-setup-assistant__item">
+                <article class="slds-setup-assistant__step">
+                    <h3 class="slds-setup-assistant__step-summary-title">2. 관심 제품 선택</h3>
+                    <div class="slds-setup-assistant__step-detail">
+                        <c-product-list-view onproductselection={handleProductSelection}></c-product-list-view>
+                        <!--체크된 제품이 있다면 표시-->
+                        <template if:true={selectedProducts}>
+                            <h3 class="slds-text-heading_small slds-m-bottom_small" style="font-weight: bold;">
+                                <lightning-icon icon-name="standard:product" size="x-small"> </lightning-icon>
+                                <span> &nbsp; 관심있어하는 제품</span>
+                            </h3>
+                        </template>
+                        <ul class="selected-products-list">
+                            <template for:each={selectedProducts} for:item="product">
+                                <li key={product.id} class="slds-item">
+                                    {product.name} ({product.code})
+                                </li>
+                            </template>
+                        </ul>
+                        
+                    </div>
+                </article>
+            </li>
+
+           
+
+            <!-- Step 3: 상담내용 기록 -->
+            <li class="slds-setup-assistant__item">
+                <article class="slds-setup-assistant__step">
+                    <h3 class="slds-setup-assistant__step-summary-title">3. 상담내용 기록</h3>
+                    <div class="slds-setup-assistant__step-detail">
+                        <lightning-input-rich-text class="rich-text" label="상담 내용" placeholder="상담 진행사항을 작성하세요"
+                            variant="label-hidden" onchange={handleInquiryChange} value={inquiryDetails}>
+                        </lightning-input-rich-text>
+                    </div> 
+                </article>
+            </li>
+
+        </ol>
+        <div class="button-container">
+            <lightning-button label="상담 기록 저장" onclick={saveInquiry} class="slds-m-top_medium"></lightning-button>
+        </div>
+
+    </div>
+</template>

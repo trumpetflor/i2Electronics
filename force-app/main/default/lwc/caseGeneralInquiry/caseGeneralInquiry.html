@@ -1,0 +1,46 @@
+<template>
+    <div class="slds-m-around_medium">
+        <!-- Setup Assistant를 사용하여 단계별로 나누어진 상담 프로세스 표시 -->
+        <ol class="slds-setup-assistant">
+            <!-- Step 1: 판매지점 선택 -->
+            <li class="slds-setup-assistant__item">
+                <article class="slds-setup-assistant__step">
+                    <h3 class="slds-setup-assistant__step-summary-title"> 판매지점 </h3>
+                    <div class="slds-setup-assistant__step-detail">
+                        <!-- 판매지점 선택을 위한 사용자 지정 컴포넌트 / CaseInquiryParentComponent에서 발생하는 accountchange 이벤트를 처리하는 리스너-->
+                        <c-account-selector onaccountchange={handleAccountChange}></c-account-selector>
+                    </div>
+                </article>
+            </li>
+            <!-- Step 2: 제품보기 -->
+            <li class="slds-setup-assistant__item">
+                <article class="slds-setup-assistant__step">
+                    <h3 class="slds-setup-assistant__step-summary-title">1. 제품 목록</h3>
+                    <div class="slds-setup-assistant__step-detail">
+                        <!-- 제품 목록을 표시하는 사용자 지정 컴포넌트 -->
+                        <c-product-list-view></c-product-list-view>
+                    </div>
+                </article>
+            </li>
+            <!-- Step 3: 상담내용 기록 -->
+            <li class="slds-setup-assistant__item">
+                <article class="slds-setup-assistant__step">
+                    <h3 class="slds-setup-assistant__step-summary-title">2. 상담내용 기록</h3>
+                    <div class="slds-setup-assistant__step-detail">
+                        <lightning-input-rich-text
+                        class="rich-text"
+                        label="상담 내용"
+                        placeholder="상담 진행사항을 작성하세요"
+                        variant="label-hidden"
+                        onchange={handleInquiryChange}>
+                    </lightning-input-rich-text>
+                    </div>
+                </article>
+            </li>
+        </ol>
+        <!-- 상담 기록 저장 버튼 -->
+        <div class="button-container">
+            <lightning-button label="상담 기록 저장" onclick={saveInquiry} class="slds-m-top_medium"></lightning-button>
+        </div>
+    </div>
+</template>

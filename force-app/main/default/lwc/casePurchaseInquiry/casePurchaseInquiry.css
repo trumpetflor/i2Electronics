@@ -1,0 +1,28 @@
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* 버튼을 오른쪽으로 정렬 */
+    padding-top: 0.5rem; /* 버튼과 그 위 요소와의 간격 */
+    padding-right: 1rem;
+}
+::slotted(.slds-modal__content) {
+    /* 모달창의 너비를 설정합니다. */
+    width: 80vw; /* 전체 뷰포트 너비의 80% */
+    max-width: none; 
+}
+/*---------------------------------------*/
+/* 선택된 제품 표시하는 css */
+
+
+.selected-products-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.selected-products-list .slds-item {
+    background-color: #f3f3f3;
+    border: 1px solid #d8dde6;
+    border-radius: 0.25rem;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+}

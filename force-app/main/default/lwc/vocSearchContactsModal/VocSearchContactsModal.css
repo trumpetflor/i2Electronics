@@ -1,0 +1,12 @@
+.button-container {
+
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+
+.slds-modal__container {
+    /* 모달창의 너비를 설정합니다. */
+    width: 80vw; /* 전체 뷰포트 너비의 80% */
+    max-width: none; 
+   
+}

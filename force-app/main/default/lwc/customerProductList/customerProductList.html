@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="고객이 보유중인 제품">
+        <lightning-card title="노트북"></lightning-card>
+        <div>
+            <lightning-datatable
+                    key-field="id"
+                    data={laptopProducts}
+                    show-row-number-column
+                    hide-checkbox-column
+                    columns={columns}>
+            </lightning-datatable>
+        </div>
+        <lightning-card title="주변기기"></lightning-card>
+        <div>
+            <lightning-datatable
+                    key-field="id"
+                    data={otherProducts}
+                    show-row-number-column
+                    hide-checkbox-column
+                    columns={columns}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

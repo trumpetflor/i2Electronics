@@ -1,0 +1,16 @@
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* 버튼을 오른쪽으로 정렬 */
+    padding-top: 0.5rem; /* 버튼과 그 위 요소와의 간격 */
+    padding-right: 1rem;
+}
+
+.slds-rich-text-area__content {
+    min-height: 200px; /* 원하는 높이로 설정 */
+}
+
+
+.custom-input lightning-input  {
+    font-weight: bold;
+
+}

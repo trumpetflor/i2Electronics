@@ -1,0 +1,10 @@
+.custom-h3 {
+    font-size: 1.1rem; /* 글씨 크기 조정 */
+    font-weight: bold; /* 굵기 */
+}
+
+h1{
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: -15px;
+}

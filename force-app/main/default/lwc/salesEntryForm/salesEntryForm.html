@@ -1,0 +1,89 @@
+<template>
+    <template if:true={isSalesProfile}>
+    <lightning-card title="판매 정보 입력" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+            <div class="slds-grid slds-wrap slds-gutters custom-label">
+                <div class="slds-col slds-size_1-of-2">
+                    <h1>제품군 선택</h1>
+                    <lightning-combobox name="productFamilySelect"
+                                        value={selectedProductFamily}
+                                        placeholder="제품군을 선택하세요"
+                                        options={productFamilyOptions}
+
+                                        onchange={handleProductFamilyChange}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <h1>제품 선택</h1>
+                    <lightning-combobox name="productSelect"
+                                        value={selectedProductId}
+                                        placeholder="제품을 선택하세요"
+                                        options={productOptions}
+                                        onchange={handleProductChange}>
+                    </lightning-combobox>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap slds-gutters slds-m-top_medium">
+                <div class="slds-col slds-size_1-of-2">
+                    <h1>수량</h1>
+                    <lightning-input type="number"
+                                     value={quantity}
+                                     onchange={handleQuantityChange}
+                                     min="1">
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <template if:true={cartItems}>
+                        <h3 class="custom-h3">추가된 제품</h3>
+                        <ul>
+                            <template for:each={cartItems} for:item="item" for:index="index">
+                                <li key={item.productId} class="product-list-item">
+                                    {item.productName} - 수량: {item.quantity} 
+                                    <lightning-button-icon icon-name="utility:close"
+                                                           variant="bare"
+                                                           alternative-text="Delete"
+                                                           title="Delete"
+                                                           class="delete-icon"
+                                                           onclick={handleDeleteItem}
+                                                           data-id={index}>
+                                    </lightning-button-icon>
+                                </li>
+                            </template>
+                            
+                            
+                        </ul>
+                    </template>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap slds-gutters slds-m-top_medium">
+                <div class="slds-col slds-size_1-of-1">
+                    <lightning-button variant="brand"
+                                      label="제품 추가"
+                                      title="제품 추가"
+                                      onclick={addToCart}>
+                    </lightning-button>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap slds-gutters slds-m-top_medium">
+                <div class="slds-col slds-size_1-of-2">
+                    <h1>할인율 (%) - 최대 20%</h1>
+                    <lightning-input type="number"
+                                     value={discountPercent}
+                                     onchange={handleDiscountPercentChange}
+                                     step="0.1">
+                    </lightning-input>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap slds-gutters slds-m-top_medium">
+                <div class="slds-col slds-size_1-of-1">
+                    <lightning-button variant="brand"
+                                      label="주문 생성"
+                                      title="주문 생성"
+                                      onclick={createOrder}>
+                    </lightning-button>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
+</template>

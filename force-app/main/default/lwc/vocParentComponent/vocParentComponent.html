@@ -1,0 +1,23 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <!-- 왼쪽 열: VocSearchContacts 컴포넌트 - 제품 및 고객 선택 이벤트 핸들링 -->
+        <div class="slds-col slds-size_1-of-2  custom-height">
+            <c-voc-search-contacts 
+                onproductselect={handleProductSelect} 
+                oncontactselect={handleContactSelect}>
+            </c-voc-search-contacts>
+        </div>
+
+        <!-- 오른쪽 열: CreateCaseForVoc 컴포넌트 - 선택된 제품 및 고객 정보를 입력 필드로 전달 -->
+        <div class="slds-col slds-size_1-of-2 ">
+            <c-create-case-for-voc onrefresh={handleRefresh}
+                ordered-product-id={selectedOrderedProductId}
+                product-id={selectedProductId} 
+                product-name={selectedProductName}
+                contact-id={selectedContactId} 
+                contact-name={selectedContactName}
+                account-name={selectedAccountName}>
+            </c-create-case-for-voc>
+        </div>
+    </div>
+</template>

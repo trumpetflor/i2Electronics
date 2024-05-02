@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>본사의 VoC상담이 진행되는 페이지
+*참고) 판매점 Profile: Tab Hidden(접근제한)</description>
+    <flexiPage>VoC</flexiPage>
+    <label>고객의 소리</label>
+    <motif>Custom22: Phone</motif>
+</CustomTab>

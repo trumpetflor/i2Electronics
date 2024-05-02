@@ -1,0 +1,23 @@
+<template>
+    <section if:true={isModalOpen} class="slds-modal slds-fade-in-open" aria-modal="true" role="dialog">
+        <div class="slds-modal__container">
+            <!-- 모달 내용  -->
+            <div class="slds-modal__content slds-p-around_medium" >
+                <!-- customer-search-modal 이라는 이름의 슬롯  -->
+                <slot name="customer-search-modal"></slot> 
+            </div>
+            <!-- <div class="button-container"> -->
+                <lightning-button 
+                label="고객 선택 완료"
+                class="slds-m-top_medium custom-button slds-p-around_medium slds-align_absolute-center"
+                onclick={closeModal}
+                variant="brand"
+                icon-name="utility:check"
+                icon-position="left">
+            </lightning-button>
+            <!-- </div> -->
+        </div><!--slds-modal__container 끝-->
+    </section>
+    <!--모달 컴포넌트의 오버레이-->
+    <div if:true={isModalOpen} class="slds-backdrop slds-backdrop_open"></div>
+</template>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IndustriesSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableAIAccelerator>false</enableAIAccelerator>
+    <enableAccountScoreEnabled>false</enableAccountScoreEnabled>
+    <enableAppInviteOrgPref>false</enableAppInviteOrgPref>
+    <enableEinsteinVisits>false</enableEinsteinVisits>
+    <enableIndustriesRebates>false</enableIndustriesRebates>
+    <enableTimelinePref>false</enableTimelinePref>
+    <enableVisitCalendarSync>false</enableVisitCalendarSync>
+    <enableVisitInventoryEnabled>false</enableVisitInventoryEnabled>
+    <rlaEditIfAccHasEdit>false</rlaEditIfAccHasEdit>
+</IndustriesSettings>

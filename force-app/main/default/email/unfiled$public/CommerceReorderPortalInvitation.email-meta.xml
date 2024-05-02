@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>상거래 재주문 포털로 연락처를 초대합니다.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>상거래 재주문 포털: 초대</name>
+    <style>none</style>
+    <subject>{!Community_Name} 시작</subject>
+    <textOnly>&lt;html&gt;
+            {!Receiving_User.FirstName} 님께,
+            &lt;p&gt;
+            {!Organization.Name}(으)로 간단하게 반복 주문을 발주할 수 있는 재주문 포털을 확인하십시오. 지난 주문 내역을 보고 수량을 수정하거나 새 주문을 발주하고 주문 상태를 볼 수 있습니다..
+            &lt;/p&gt;
+            &lt;p&gt;
+            액세스하려면 링크 클릭: &lt;a href={!Community_URL}&gt;{!Community_Name}&lt;/a&gt;
+            사용자 이름: {!Receiving_User.Username}
+            &lt;/p&gt;
+            감사합니다.&lt;br&gt;
+            {!User.Name}
+            &lt;/html&gt;</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

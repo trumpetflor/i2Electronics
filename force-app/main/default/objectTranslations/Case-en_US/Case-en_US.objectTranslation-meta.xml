@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>상담&amp;VoC</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>상담&amp;VoC</value>
+    </caseValues>
+    <layouts>
+        <layout>Case Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>CaseForVoC Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>고객 정보</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>주문 및 판매 지점 정보</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>NewChildCase</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

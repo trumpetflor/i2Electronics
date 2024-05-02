@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>VoC상담이 완료된 고객에게 이메일 보내는 양식</description>
+    <encodingKey>ks_c_5601-1987</encodingKey>
+    <name>VoC Consultations Email Template</name>
+    <style>none</style>
+    <subject>[i2전자 / 고객서비스팀] {!Contact.Name} 님,귀하의 {!Case.Product__c}에 대한 피드백에 감사드립니다</subject>
+    <textOnly>귀하의 소중한 피드백에 감사드립니다
+
+안녕하세요 {!Contact.Name}님,
+
+최근 i2전자의  {!Case.Product__c} 에 대한 귀중한 피드백을 주시기 위해 시간을 내주셔서 진심으로 감사드립니다. 귀하의 의견은 저희가 제품과 서비스를 개선하는 데 큰 도움이 됩니다.
+
+상담 중에 주신 피드백은 다음과 같습니다:
+
+{!Case.Email_Content__c}
+
+
+해당 문제를 신속하고 만족스럽게 해결하기 위해 저희 팀이 취한 조치를 알려드리게 되어 기쁩니다. 이제  {!Case.Product__c}를 원활하게 사용하실 수 있으실 것으로 기대합니다.
+
+귀하의 피드백 덕분에 저희는 더 나은 제품과 서비스를 제공할 수 있게 되었습니다. 이에 깊은 감사를 표합니다. i2전자는 귀하의 만족과 제품 사용 경험 향상을 위해 지속적으로 노력할 것입니다.
+
+향후 사용하시면서 궁금하신 점이나 추가로 도움이 필요한 사항이 있으시다면, 언제든지 연락 주십시오. 저희 i2전자는 항상 귀하의 소중한 의견을 기다리고 있습니다.
+
+감사합니다.
+
+상담 내용에 대해 궁금하신 점이나 추가적으로 도움이 필요하신 부분이 있으시면 언제든지 편하게 연락 주세요.
+i2전자는 고객님의 의견을 항상 기다리고 있습니다!
+i2전자 고객서비스팀 드림</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

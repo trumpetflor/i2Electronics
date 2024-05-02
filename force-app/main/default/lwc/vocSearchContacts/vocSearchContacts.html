@@ -1,0 +1,149 @@
+<template>
+
+    <lightning-card title="고객 관리" icon-name="custom:custom63">
+        <!-- 검색 섹션 -->
+        <div class="search-row">
+            <lightning-input class="search-input" value={phoneNumber} onchange={handlePhoneChange}
+                placeholder="전화번호를 입력하세요." variant="label-hidden">
+            </lightning-input>
+            <lightning-button class="search-button" label="검색" onclick={handleSearch} variant="brand"
+                icon-name="utility:search">
+            </lightning-button>
+        </div>
+
+
+        <!-- 탭 레이아웃 -->
+        <!-- 고객 정보 및 제품 목록 탭 -->
+
+
+
+        <!-- 고객 정보 데이터 테이블 -->
+        <template if:true={contactData}>
+            <div class="section-header fixed-height-datatable">
+                <h2 class="custom-title slds-p-around-medium">고객 정보 <small>(Total : {contactResultCount})</small></h2>
+                <lightning-datatable key-field="Id" data={contactData} columns={columns}
+                    onrowaction={handleContactSelect} onrowclick={handleContactSelectForRecordPage}
+                    hide-checkbox-column
+                    >
+                </lightning-datatable>
+            </div>
+        </template>
+        <template if:false={hasFindContactResult}>
+            <div class="slds-m-around_large slds-box slds-theme_shade slds-theme_alert-texture">
+                <p> 일치하는 고객이 존재하지않습니다. </p>
+            </div>
+            
+        </template>
+
+
+        <!-- 탭 레이아웃 -->
+        <template if:true={contactId}>
+            <br><br>
+            <lightning-tabset>
+                <!-- 제품 목록 탭 -->
+                <lightning-tab label="제품 목록">
+                    <!-- 제품 목록 탭 -->
+                    <template if:true={orderedProducts}>
+                        <div class="section-header">
+                            <h2 class="custom-title slds-p-around-medium">제품 목록</h2>
+
+                            <table
+                                class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_fixed-layout">
+                                <!-- 테이블 헤더 -->
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="제품명">제품명</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="가격">가격</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="수량">수량</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="주문일자">주문일자</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- 테이블 데이터 행 -->
+                                    <template for:each={orderedProducts} for:item="product">
+                                        <tr key={product.Id} class="slds-hint-parent cursor-pointer"
+                                            data-id={product.orderedProductId} data-productid={product.ProductId}
+                                            data-name={product.ProductName} data-accountname={product.accountName}
+                                            onclick={handleProductSelect}>
+                                            <td scope="row">
+                                                <div class="slds-truncate" title={product.ProductName}>
+                                                    {product.ProductName}</div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title={product.ProductPrice}>
+                                                    {product.ProductPrice}</div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title={product.Quantity}>{product.Quantity}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title={product.OrderDate}>{product.OrderDate}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </template>
+                    <template if:false={orderedProducts}>
+                        <div class="slds-m-around_large slds-box slds-theme_shade slds-theme_alert-texture">
+                            <p> 제품이 없습니다. </p>
+                        </div>
+                    </template>
+
+                </lightning-tab>
+
+                <!-- VoC 상담내역 탭 -->
+
+                <lightning-tab label="VoC 상담내역">
+                    <template if:true={caseData}>
+                        <template for:each={caseData} for:item="caseRecord">
+                            <div key={caseRecord.Id} class="slds-col slds-size_1-of-1 slds-p-around_x-small slds-m-bottom_small">
+                                <article class="slds-card slds-theme_default" style="border: 1px solid #ddd; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);">
+                                    <div class={caseRecord.headerClass}>
+                                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                            <div class="slds-media__figure  slds-align-middle">
+                                                <span class="slds-icon_container slds-icon-standard-case slds-m-around_x-small" title="Case">
+                                                    <lightning-icon icon-name="standard:case" alternative-text="Case" size="small" ></lightning-icon>
+                                                </span>
+                                            </div>
+                                            <div class="slds-media__body slds-align-middle"><!--VoC일때는 제품명 같이 표시-->
+                                                <div if:true={caseRecord.Product__c} class="slds-text-body_small"><b>VoC [ {caseRecord.Product__c} ]</b></div>
+                                                <div if:false={caseRecord.Product__c} class="slds-text-body_small"><b>구매상담</b></div>
+                                            </div>
+                                        </header>
+                                    </div>
+                                    
+                                    <div class="slds-card__body slds-card__body_inner slds-p-horizontal_small">
+                                        <lightning-formatted-rich-text value={caseRecord.Description__c}></lightning-formatted-rich-text>
+                                    </div>
+                                    <footer class="slds-card__footer slds-grid slds-grid_align-spread">
+                                        <span class="slds-text-title">상담 일자: {caseRecord.formattedDate}</span>
+                                        <a href="javascript:void(0);" onclick={handleViewMoreDetails} data-id={caseRecord.Id} class="slds-card__footer-action" aria-label="상세 정보 보기">
+                                            상세 정보 보기
+                                        </a>
+                                    </footer>
+                                </article>
+                            </div>
+                        </template>
+                    </template>
+                    <template if:false={caseData}>
+                        <div class="slds-m-around_large slds-box slds-theme_shade slds-theme_alert-texture">
+                            <p> 상담 내역이 없습니다. </p>
+                        </div>
+                    </template>
+                </lightning-tab>
+            </lightning-tabset>
+        </template>
+    </lightning-card>
+</template>

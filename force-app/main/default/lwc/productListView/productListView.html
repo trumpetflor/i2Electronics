@@ -1,0 +1,15 @@
+<template>
+    <div class="flex-container">
+        <lightning-card title="제품 리스트" icon-name="standard:product">
+            <lightning-datatable
+            data={products}
+            columns={columns}
+            key-field="id"
+            onrowselection={handleRowSelection}>
+        </lightning-datatable>
+            <!-- <lightning-report-chart report-id="00OIS000000Kdws2AC"></lightning-report-chart> -->
+        </lightning-card>
+        
+    </div>
+        
+</template>

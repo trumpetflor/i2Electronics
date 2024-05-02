@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>VoC path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Description__c</fieldNames>
+        <fieldNames>Email_Content__c</fieldNames>
+        <info>&lt;p&gt;상담이 종료되었습니다.&lt;/p&gt;&lt;p&gt;종료된 상담은 다시 re-open할 수 없습니다.&lt;/p&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;상담을 종료하려면 &amp;#39;고객에게 이메일 전송 및 상담종료하기&amp;#39;를 눌러주세요!&lt;/p&gt;</info>
+        <picklistValueName>In Progress</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>CaseForVoC</recordTypeName>
+</PathAssistant>

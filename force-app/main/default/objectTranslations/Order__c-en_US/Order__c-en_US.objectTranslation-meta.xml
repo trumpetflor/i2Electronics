@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>주문서</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>주문서</value>
+    </caseValues>
+    <layouts>
+        <layout>Order Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>주문서</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Max20Percent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Min0Percent</name>
+    </validationRules>
+</CustomObjectTranslation>

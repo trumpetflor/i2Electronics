@@ -1,0 +1,6 @@
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* 버튼을 오른쪽으로 정렬 */
+    padding-top: 0.5rem; /* 버튼과 그 위 요소와의 간격 */
+    padding-right: 1rem;
+}

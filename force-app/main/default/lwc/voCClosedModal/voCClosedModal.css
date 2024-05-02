@@ -1,0 +1,7 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+.rich-text {
+    min-height: 300px; 
+}

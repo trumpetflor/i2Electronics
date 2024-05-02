@@ -1,0 +1,14 @@
+<template>
+    <lightning-combobox
+        name="accountPicker"
+        value={selectedAccountId}
+        placeholder="담당 지점을 선택하세요"
+        options={accountOptions}
+        onchange={handleAccountChange}
+        required
+        autocomplete
+        message-when-value-missing="담당 지점 선택을 필수 값입니다"
+        variant="label-hidden">
+        
+    </lightning-combobox>
+</template>

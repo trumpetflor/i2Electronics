@@ -1,0 +1,103 @@
+.search-row {
+    display: flex;
+    justify-content: center; /* 가로축 중앙 정렬 */
+    align-items: center;     /* 세로축 중앙 정렬 */
+    height: 100%;            /* 컨테이너의 높이 설정 */
+}
+
+.search-input {
+    flex-grow: 1;            /* 입력 필드의 너비를 늘림 */
+    margin-right: 0.5rem;    /* 버튼과의 간격 설정 */
+    margin-left: 0.5rem;  
+}
+
+.search-button {
+    /* 버튼 너비 */
+    margin-right: 0.5rem; 
+}
+
+.section-header {
+    padding: 10px;
+    /* background-color: #f4f6f9; */
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/*중앙정렬*/
+.center-align {
+    text-align: center;
+}
+
+.custom-title {
+    font-weight: bold; /* 글씨 굵기 */
+    font-size: 1.5em; /* 글씨 크기 */
+    color: #005290; /* 글씨 색상 */
+}
+.slds-p-around-medium {
+    padding: 1rem; /* 패딩 조절 */
+}
+
+.fixed-height-datatable {
+    max-height: 500px;
+    height: 335px; /* 원하는 높이 값 */
+    overflow-y: auto; /* 세로 스크롤 활성화 */
+    overflow-x: auto; /* 가로 스크롤 활성화 */
+}
+
+
+
+/*상담내역탭*/
+.slds-card__footer {
+    padding: 0.5rem;
+}
+
+.slds-card__footer-action {
+    color: #0070d2; /* Salesforce Lightning Design System의 링크 색상 */
+    text-decoration: none;
+}
+
+.slds-card__footer-action:hover {
+    text-decoration: underline;
+}
+
+
+
+/*추가 ) 상담내역관련 */
+/* 이 클래스를 <div class="slds-card__header slds-grid"> 태그에 추가 */
+.center-flex {
+    display: flex;
+    justify-content: center; /* 가로축 중앙 정렬 */
+    align-items: center;     /* 세로축 중앙 정렬 */
+    flex-direction: column;  /* 아이템들을 세로로 정렬 */
+}
+
+/* 기존의 slds-media_center 클래스를 오버라이드 */
+.slds-media_center {
+    justify-content: center; /* 가로축 중앙 정렬 */
+    align-items: center;     /* 세로축 중앙 정렬 */
+    display: flex;
+    width: 100%; /* 전체 너비 사용 */
+}
+
+
+/* 상담내역 헤더 관련 클래스 */
+.purchase-consultation {
+    background-color: rgb(216, 216, 216);
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center; 
+}
+
+.voc-consultation {
+    background-color: #dbe8f4;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center; 
+}
+
+.default-header {
+    background-color: #f4f6f9;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center; 
+}

@@ -1,0 +1,12 @@
+<html>
+            {!Receiving_User.FirstName} 님께,
+            <p>
+            {!Organization.Name}(으)로 간단하게 반복 주문을 발주할 수 있는 재주문 포털을 확인하십시오. 지난 주문 내역을 보고 수량을 수정하거나 새 주문을 발주하고 주문 상태를 볼 수 있습니다..
+            </p>
+            <p>
+            액세스하려면 링크 클릭: <a href={!Community_URL}>{!Community_Name}</a>
+            사용자 이름: {!Receiving_User.Username}
+            </p>
+            감사합니다.<br>
+            {!User.Name}
+            </html>

@@ -1,0 +1,32 @@
+<template>
+    <template if:true={isSalesProfile}>
+    <lightning-button label="환불하기" variant="destructive" onclick={showModal}></lightning-button>
+    </template>
+    
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" aria-modal="true" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Header -->
+                <header class="slds-modal__header">
+                    <lightning-button-icon icon-name="utility:close"
+                        onclick={closeModal}
+                        alternative-text="close"
+                        variant="bare-inverse"
+                        class="slds-modal__close">
+                    </lightning-button-icon>
+                    <h2 class="slds-text-heading_medium">환불 사유</h2>
+                </header>
+                <!-- Modal Body -->
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-textarea name="refundReason" onchange={handleReasonChange}></lightning-textarea>
+                </div>
+                <!-- Modal Footer -->
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="neutral" label="취소" onclick={closeModal} class="slds-m-right_small"></lightning-button>
+                    <lightning-button variant="destructive" label="환불" onclick={processRefund}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>
